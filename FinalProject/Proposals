@@ -2,5 +2,5 @@ Final project
            
 Proposal : An pitching machine which can change direction and pitch balls to different distances. 
 
-Method: Servo motor controls the angle the machine rotates, and Determining how far the balls are pitched by change 
-the speed of DC motor (5 levels of speed).
+Method: Servo motor controls the angle the machine rotates. Also it can determine how far the balls are pitched through changing 
+the speed of servo motor by soundsensor.
