@@ -23,7 +23,8 @@
 
   http://www.arduino.cc/en/Tutorial/ButtonStateChange
 
-*/#include <Servo.h>
+*/
+#include <Servo.h>
 
 Servo myservo;  // create servo object to control a servo
 
@@ -40,7 +41,7 @@ void setup() {
   // initialize the button pin as a input:
   pinMode(buttonPin, INPUT);
   // initialize the LED as an output:
-  pinMode(servomotor, OUTPUT);
+  //pinMode(myservo, OUTPUT);
   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
   // initialize serial communication:
   Serial.begin(9600);
@@ -61,12 +62,12 @@ void loop() {
       Serial.println("on");
       Serial.print("number of button pushes:  ");
       Serial.println(buttonPushCounter);
-      int pos[] = {10, 45, 90, 135, 170};
-      int group;
-      group == buttonPushCounter % 6;
-      Serial.print("group=");
-      Serial.println(group);
-      myservo.write(pos[group]);
+      int pos[] = {10, 30, 60, 90, 120, 150, 180};
+      int index;
+      index = buttonPushCounter % 7;
+      Serial.print("index=");
+      Serial.println(index);
+      myservo.write(pos[index]);
 
     } else {
       // if the current state is LOW then the button
@@ -79,7 +80,4 @@ void loop() {
   // save the current state as the last state,
   //for next time through the loop
   lastButtonState = buttonState;
-
-
-
 }
