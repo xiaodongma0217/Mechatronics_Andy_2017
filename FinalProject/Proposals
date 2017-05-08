@@ -1,6 +1,0 @@
-Final project
-           
-Proposal : A pitching machine which can change direction and pitch balls to different distances by sound-control. 
-
-Method: Servo motor controls the angle the machine rotates. Also it can determine how far the balls are pitched through changing 
-the speed of DC motor by soundsensor.
