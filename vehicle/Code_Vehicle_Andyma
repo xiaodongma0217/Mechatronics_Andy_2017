@@ -1,14 +1,15 @@
 const int sampleWindow = 250; // Sample window width in mS (250 mS = 4Hz)
 unsigned int knock;
-int motorPin = 3;
-int motorPin2 = 5;
-
+int motorPin = 3; // Attach the left DC Motor to analogWrite pin 3
+int motorPin2 = 5; // Attach the right DC Motor to analogWrite pin 5
+int knock = A0; // Attach the Soundsensor to analogRead pin A0
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(motorPin, OUTPUT);
-  pinMode(motorPin2, OUTPUT);
+  pinMode(knock, INPUT); // Declare the knock as Input
+  pinMode(motorPin, OUTPUT); // Declare the motorPin as Output
+  pinMode(motorPin2, OUTPUT); // Declare the motorPin2 as Output
 }
 
 void loop()
@@ -42,17 +43,17 @@ void loop()
   Serial.println(peakToPeak);
   if (peakToPeak < 1000)
   {
-    //turn on
-    analogWrite(motorPin, 140);
-    analogWrite(motorPin2, 140);
+    //Go straight
+    analogWrite(motorPin, 140); // this is the slowest my motor would still turn
+    analogWrite(motorPin2, 140); // this is the slowest my motor would still turn
     delay(1);
     Serial.println("Knock Knock");
   }
   else
   {
-    //turn off
-    analogWrite(motorPin, 0);
-    analogWrite(motorPin2, 140);
+    // Turn left
+    analogWrite(motorPin, 0); // motor off
+    analogWrite(motorPin2, 140); // this is the slowest my motor would still turn
   }
 
 }
